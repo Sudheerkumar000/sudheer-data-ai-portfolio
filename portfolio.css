@@ -191,10 +191,74 @@ h3 {
     linear-gradient(0deg, rgba(3, 10, 17, 0.86) 0%, rgba(3, 10, 17, 0.18) 44%, rgba(3, 10, 17, 0.6) 100%);
 }
 
-.hero-content {
+.hero-layout {
   position: relative;
   z-index: 1;
-  width: min(900px, 100%);
+  display: grid;
+  width: min(1180px, 100%);
+  grid-template-columns: minmax(0, 1fr) minmax(250px, 330px);
+  gap: clamp(24px, 4vw, 54px);
+  align-items: center;
+}
+
+.hero-content {
+  width: min(780px, 100%);
+}
+
+.profile-card {
+  justify-self: end;
+  width: min(100%, 320px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.08)),
+    rgba(8, 17, 25, 0.38);
+  padding: 14px;
+  color: #ffffff;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(18px);
+  transition:
+    transform 220ms var(--ease),
+    border-color 220ms var(--ease),
+    background-color 220ms var(--ease);
+}
+
+.profile-card:hover {
+  border-color: rgba(255, 255, 255, 0.34);
+  transform: translateY(-4px);
+}
+
+.profile-photo {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center 44%;
+  border-radius: 8px;
+  background: #eef4f7;
+}
+
+.profile-copy {
+  display: grid;
+  gap: 5px;
+  padding: 14px 4px 4px;
+}
+
+.profile-copy span {
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 950;
+  line-height: 1.15;
+}
+
+.profile-copy strong {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.9rem;
+  line-height: 1.25;
+}
+
+.profile-copy small {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.82rem;
 }
 
 .eyebrow,
@@ -213,7 +277,7 @@ h3 {
 
 h1 {
   margin-bottom: 22px;
-  max-width: 900px;
+  max-width: 780px;
   font-size: clamp(2.9rem, 5.4vw, 4.9rem);
   line-height: 0.95;
   letter-spacing: 0;
@@ -694,6 +758,33 @@ h2 {
     padding-bottom: 34px;
   }
 
+  .hero-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .hero-content {
+    width: 100%;
+  }
+
+  .profile-card {
+    display: grid;
+    width: min(100%, 560px);
+    grid-template-columns: 112px minmax(0, 1fr);
+    gap: 14px;
+    align-items: center;
+    justify-self: start;
+    padding: 12px;
+  }
+
+  .profile-photo {
+    width: 112px;
+  }
+
+  .profile-copy {
+    padding: 0;
+  }
+
   .hero-proof {
     position: relative;
     right: auto;
@@ -786,6 +877,28 @@ h2 {
 
   .button {
     width: 100%;
+  }
+
+  .profile-card {
+    width: 100%;
+    grid-template-columns: 86px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .profile-photo {
+    width: 86px;
+  }
+
+  .profile-copy span {
+    font-size: 0.96rem;
+  }
+
+  .profile-copy strong {
+    font-size: 0.82rem;
+  }
+
+  .profile-copy small {
+    font-size: 0.76rem;
   }
 
   .hero-proof article,
